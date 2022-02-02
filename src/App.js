@@ -2,9 +2,11 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { CircularProgress } from "@mui/material";
 import "./styles.css";
+import "flag-icon-css/css/flag-icons.min.css";
 
 export default function App() {
   const [formData, setFormData] = useState(null);
+  const [language, setLanguage] = useState(null);
   useEffect(() => {
     setTimeout(() => {
       axios
@@ -35,7 +37,16 @@ export default function App() {
     return (
       <div className="App">
         <h1>Data Loaded</h1>
-        <div>{JSON.stringify(formData.data.sheetData)}</div>
+        <div style={{ display: "flex", justifyContent: "space-evenly" }}>
+          <div
+            className="flag-icon flag-icon-us"
+            style={{ width: "3rem", height: "3rem" }}
+          ></div>
+          <div
+            className="flag-icon flag-icon-es"
+            style={{ width: "3rem", height: "3rem" }}
+          ></div>
+        </div>
       </div>
     );
   }
